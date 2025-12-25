@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mini Calculator</title>
+    <style>
+      body {
+        font-family: Arial;
+        text-align: center;
+        margin-top: 80px;
+        background: #f7f7f7;
+      }
+      .calc {
+        background: white;
+        padding: 20px;
+        width: 250px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 10px gray;
+      }
+      input {
+        width: 90%;
+        padding: 8px;
+        margin: 8px 0;
+        text-align: center;
+        font-size: 18px;
+      }
+      button {
+        padding: 10px;
+        margin: 5px;
+        width: 45%;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      h2 {
+        color: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="calc">
+      <h2>Mini Calculator</h2>
+      <input type="number" id="num1" placeholder="Enter first number"><br>
+      <input type="number" id="num2" placeholder="Enter second number"><br>
+
+      <button onclick="add()">+</button>
+      <button onclick="sub()">-</button><br>
+      <button onclick="mul()">*</button>
+      <button onclick="div()">/</button>
+
+      <h3 id="result"></h3>
+    </div>
+
+    <script>
+      let n1 = document.querySelector("#num1");
+      let n2 = document.querySelector("#num2");
+      let res = document.querySelector("#result");
+
+      function add() {
+        res.innerHTML = "Result: " + (parseFloat(n1.value) + parseFloat(n2.value));
+      }
+
+      function sub() {
+        res.innerHTML = "Result: " + (parseFloat(n1.value) - parseFloat(n2.value));
+      }
+
+      function mul() {
+        res.innerHTML = "Result: " + (parseFloat(n1.value) * parseFloat(n2.value));
+      }
+
+      function div() {
+        if (parseFloat(n2.value) === 0) {
+          res.innerHTML = "Cannot divide by zero!";
+        } else {
+          res.innerHTML = "Result: " + (parseFloat(n1.value) / parseFloat(n2.value));
+        }
+      }
+    </script>
+  </body>
+</html>
